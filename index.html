@@ -1,23 +1,49 @@
-<div class="box">
-    <h1>Meta Pixel Practice</h1>
-    <p>This is a simple HTML page for Meta Pixel testing.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Store</title>
 
-    <button onclick="purchaseEvent()">Buy Now</button>
-</div>
-
+<!-- Meta Pixel Code -->
 <script>
-function purchaseEvent() {
-    fbq('track', 'Purchase', {
-        value: 100,
-        currency: 'USD'
-    });
-
-    alert("Purchase Event Sent!");
-}
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '27540663102239973');
+fbq('track', 'PageView');
 </script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=27540663102239973&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body style="font-family: Arial, sans-serif; text-align:center; margin-top:50px;">
+
+    <h1>Welcome to My Store</h1>
+    <p>Check out our amazing products at unbeatable prices!</p>
+
+    <button onclick="trackPurchase()" style="padding:12px 24px; font-size:16px; background-color:#1877f2; color:white; border:none; border-radius:6px; cursor:pointer;">
+        Buy Now
+    </button>
+
+    <script>
+    function trackPurchase() {
+        // Purchase event track karega
+        fbq('track', 'Purchase', {
+            value: 20.00,      // apni product ki actual price yahan daalein
+            currency: 'USD'    // apni currency yahan set karein (e.g. PKR)
+        });
+
+        // Yahan aap redirect ya thank-you message add kar sakte hain
+        alert('Thank you for your purchase!');
+    }
+    </script>
 
 </body>
 </html>
-Agar aap Meta Pixel ki practice karna chahte hain, to ye simple index.html file use kar sakte hain. Isme Meta Pixel code ki jagah placeholder diya gaya hai aur ek button bhi hai jo Purchase event trigger karta hai.
-HTML
-Is code ko use karne ka tareeqa:
