@@ -1,0 +1,23 @@
+<div class="box">
+    <h1>Meta Pixel Practice</h1>
+    <p>This is a simple HTML page for Meta Pixel testing.</p>
+
+    <button onclick="purchaseEvent()">Buy Now</button>
+</div>
+
+<script>
+function purchaseEvent() {
+    fbq('track', 'Purchase', {
+        value: 100,
+        currency: 'USD'
+    });
+
+    alert("Purchase Event Sent!");
+}
+</script>
+
+</body>
+</html>
+Agar aap Meta Pixel ki practice karna chahte hain, to ye simple index.html file use kar sakte hain. Isme Meta Pixel code ki jagah placeholder diya gaya hai aur ek button bhi hai jo Purchase event trigger karta hai.
+HTML
+Is code ko use karne ka tareeqa:
